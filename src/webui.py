@@ -295,24 +295,7 @@ if __name__ == '__main__':
                 filter_tags.change(filter_models, inputs=[filter_tags, search_query], outputs=public_models_table)
                 download_pub_btn.click(download_online_model, inputs=[pub_zip_link, pub_model_name], outputs=pub_dl_output_message)
 
-        # Upload tab
-        with gr.Tab('Upload model'):
-            gr.Markdown('## Upload locally trained RVC v2 model and index file')
-            gr.Markdown('- Find model file (weights folder) and optional index file (logs/[name] folder)')
-            gr.Markdown('- Compress files into zip file')
-            gr.Markdown('- Upload zip file and give unique name for voice')
-            gr.Markdown('- Click Upload model')
-
-            with gr.Row():
-                with gr.Column():
-                    zip_file = gr.File(label='Zip file')
-
-                local_model_name = gr.Text(label='Model name')
-
-            with gr.Row():
-                model_upload_button = gr.Button('Upload model', variant='primary', scale=19)
-                local_upload_output_message = gr.Text(label='Output Message', interactive=False, scale=20)
-                model_upload_button.click(upload_local_model, inputs=[zip_file, local_model_name], outputs=local_upload_output_message)
+      
 
     app.launch(
         share=args.share_enabled,
