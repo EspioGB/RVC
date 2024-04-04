@@ -223,8 +223,7 @@ if __name__ == '__main__':
                 with gr.Row():
                     main_gain = gr.Slider(-20, 20, value=0, step=1, label='Main Vocals')
                     backup_gain = gr.Slider(-20, 20, value=0, step=1, label='Backup Vocals')
-                    inst_gain = gr.Slider(-20, 20, value=0, step=1, label='Music')
-
+                    
                 gr.Markdown('### Reverb Control on AI Vocals')
                 with gr.Row():
                     reverb_rm_size = gr.Slider(0, 1, value=0.15, label='Room size', info='The larger the room, the longer the reverb time')
@@ -239,7 +238,7 @@ if __name__ == '__main__':
                 clear_btn = gr.ClearButton(value='Clear', components=[song_input, rvc_model, keep_files, local_file])
                 generate_btn = gr.Button("Generate", variant='primary')
             with gr.Row():
-                ai_vocals = gr.Audio(label='Ai Cover ', show_share_button=False)
+                ai_cover = gr.Audio(label='Ai Cover ', show_share_button=False)
                 ai_backing = gr.Audio(label='AI Cover (backing Inference)', show_share_button=False)
 
             ref_btn.click(update_models_list, None, outputs=rvc_model)
@@ -249,9 +248,9 @@ if __name__ == '__main__':
                                        inst_gain, index_rate, filter_radius, rms_mix_rate, f0_method, crepe_hop_length,
                                        protect, pitch_all, reverb_rm_size, reverb_wet, reverb_dry, reverb_damping,
                                        output_format],
-                               outputs=[ai_vocals, ai_backing])
-            clear_btn.click(lambda: [0, 0, 0, 0, 0.5, 3, 0.25, 0.33, 'rmvpe', 128, 0, 0.15, 0.2, 0.8, 0.7, 'mp3', None],
-                            outputs=[pitch, main_gain, backup_gain, inst_gain, index_rate, filter_radius, rms_mix_rate,
+                               outputs=[ai_cover, ai_backing])
+            clear_btn.click(lambda: [0, 0, 0, 0.5, 3, 0.25, 0.33, 'rmvpe', 128, 0, 0.15, 0.2, 0.8, 0.7, 'mp3', None],
+                            outputs=[pitch, main_gain, backup_gain, index_rate, filter_radius, rms_mix_rate,
                                      protect, f0_method, crepe_hop_length, pitch_all, reverb_rm_size, reverb_wet,
                                      reverb_dry, reverb_damping, output_format, ai_cover])
 
