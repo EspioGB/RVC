@@ -245,7 +245,7 @@ if __name__ == '__main__':
             is_webui = gr.Number(value=1, visible=False)
             generate_btn.click(song_cover_pipeline,
                                inputs=[song_input, rvc_model, pitch, keep_files, is_webui, main_gain, backup_gain,
-                                       inst_gain, index_rate, filter_radius, rms_mix_rate, f0_method, crepe_hop_length,
+                                       index_rate, filter_radius, rms_mix_rate, f0_method, crepe_hop_length,
                                        protect, pitch_all, reverb_rm_size, reverb_wet, reverb_dry, reverb_damping,
                                        output_format],
                                outputs=[ai_cover, ai_backing])
