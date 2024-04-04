@@ -7,7 +7,7 @@ WebUI is under constant development and testing, but you can try it out right no
 
 ## Changelog
 
-- added hybrid[mangio-crepe+rmvpe] for best inference
+
 - WebUI for easier conversions and downloading of voice models
 - Support for cover generations from a local audio file
 - Option to keep intermediate files generated. e.g. Isolated vocals/instrumentals
