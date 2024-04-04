@@ -177,7 +177,7 @@ if __name__ == '__main__':
     with open(os.path.join(rvc_models_dir, 'public_models.json'), encoding='utf8') as infile:
         public_models = json.load(infile)
 
-    with gr.Blocks(theme='Hev832/emerald', title='AICoverGenWebUI') as app:
+    with gr.Blocks(theme='Hev832/emerald', title='HRVC') as app:
 
         #gr.Label('AICoverGen WebUI created with ❤️', show_label=False)
 
@@ -196,7 +196,7 @@ if __name__ == '__main__':
 
                     with gr.Column(visible=False) as file_upload_col:
                         local_file = gr.File(label='Audio file')
-                        song_input_file = gr.UploadButton('Upload ', file_types=['audio'], variant='primary')
+                        song_input_file = gr.UploadButton('Upload', file_types=['audio'], variant='primary')
                         show_yt_link_button = gr.Button('Paste YouTube link/Path to local file instead')
                         song_input_file.upload(process_file_upload, inputs=[song_input_file], outputs=[local_file, song_input])
 
@@ -213,7 +213,7 @@ if __name__ == '__main__':
                     rms_mix_rate = gr.Slider(0, 1, value=0.25, label='RMS mix rate', info="Control how much to mimic the original vocal's loudness (0) or a fixed loudness (1)")
                     protect = gr.Slider(0, 0.5, value=0.33, label='Protect rate', info='Protect voiceless consonants and breath sounds. Set to 0.5 to disable.')
                     with gr.Column():
-                        f0_method = gr.Dropdown(['rmvpe', 'mangio-crepe', 'mangio-crepe-tiny', 'crepe-tiny', 'dio'], value='rmvpe', label='Pitch detection algorithm', info='Best option is rmvpe (clarity in vocals), then mangio-crepe (smoother vocals)')
+                        f0_method = gr.Dropdown(['rmvpe', 'mangio-crepe'], value='rmvpe', label='Pitch detection algorithm', info='Best option is rmvpe (clarity in vocals), then mangio-crepe (smoother vocals)')
                         crepe_hop_length = gr.Slider(32, 320, value=128, step=1, visible=False, label='Crepe hop length', info='Lower values leads to longer conversions and higher risk of voice cracks, but better pitch accuracy.')
                         f0_method.change(show_hop_slider, inputs=f0_method, outputs=crepe_hop_length)
                 keep_files = gr.Checkbox(label='Keep intermediate files', info='Keep all audio files generated in the song_output/id directory, e.g. Isolated Vocals/Instrumentals. Leave unchecked to save space')
@@ -223,7 +223,8 @@ if __name__ == '__main__':
                 with gr.Row():
                     main_gain = gr.Slider(-20, 20, value=0, step=1, label='Main Vocals')
                     backup_gain = gr.Slider(-20, 20, value=0, step=1, label='Backup Vocals')
-                    
+                    inst_gain = gr.Slider(-20, 20, value=0, step=1, label='Music')
+
                 gr.Markdown('### Reverb Control on AI Vocals')
                 with gr.Row():
                     reverb_rm_size = gr.Slider(0, 1, value=0.15, label='Room size', info='The larger the room, the longer the reverb time')
@@ -238,19 +239,19 @@ if __name__ == '__main__':
                 clear_btn = gr.ClearButton(value='Clear', components=[song_input, rvc_model, keep_files, local_file])
                 generate_btn = gr.Button("Generate", variant='primary')
             with gr.Row():
-                ai_cover = gr.Audio(label='Ai Cover ', show_share_button=False)
-                ai_backing = gr.Audio(label='AI Cover (backing Inference)', show_share_button=False)
+                ai_cover = gr.Audio(label='AI Cover (Vocal Only Inference)', show_share_button=False)
+                ai_backing = gr.Audio(label='AI Cover (Vocal Backing Inference)', show_share_button=False)
 
             ref_btn.click(update_models_list, None, outputs=rvc_model)
             is_webui = gr.Number(value=1, visible=False)
             generate_btn.click(song_cover_pipeline,
                                inputs=[song_input, rvc_model, pitch, keep_files, is_webui, main_gain, backup_gain,
-                                       index_rate, filter_radius, rms_mix_rate, f0_method, crepe_hop_length,
+                                       inst_gain, index_rate, filter_radius, rms_mix_rate, f0_method, crepe_hop_length,
                                        protect, pitch_all, reverb_rm_size, reverb_wet, reverb_dry, reverb_damping,
                                        output_format],
                                outputs=[ai_cover, ai_backing])
-            clear_btn.click(lambda: [0, 0, 0, 0.5, 3, 0.25, 0.33, 'rmvpe', 128, 0, 0.15, 0.2, 0.8, 0.7, 'mp3', None],
-                            outputs=[pitch, main_gain, backup_gain, index_rate, filter_radius, rms_mix_rate,
+            clear_btn.click(lambda: [0, 0, 0, 0, 0.5, 3, 0.25, 0.33, 'rmvpe', 128, 0, 0.15, 0.2, 0.8, 0.7, 'mp3', None],
+                            outputs=[pitch, main_gain, backup_gain, inst_gain, index_rate, filter_radius, rms_mix_rate,
                                      protect, f0_method, crepe_hop_length, pitch_all, reverb_rm_size, reverb_wet,
                                      reverb_dry, reverb_damping, output_format, ai_cover])
 
@@ -263,7 +264,7 @@ if __name__ == '__main__':
                     model_name = gr.Text(label='Name your model', info='Give your new model a unique name from your other voice models.')
 
                 with gr.Row():
-                    download_btn = gr.Button('Download ', variant='primary', scale=19)
+                    download_btn = gr.Button('Download', variant='primary', scale=19)
                     dl_output_message = gr.Text(label='Output Message', interactive=False, scale=20)
 
                 download_btn.click(download_online_model, inputs=[model_zip_link, model_name], outputs=dl_output_message)
@@ -272,8 +273,8 @@ if __name__ == '__main__':
                 gr.Examples(
                     [
                         ['https://huggingface.co/phant0m4r/LiSA/resolve/main/LiSA.zip', 'Lisa'],
-                        ['https://huggingface.co/Hev832/rvc/resolve/main/Sonic.zip?download=true', 'Sonic'],
-                        ['https://huggingface.co/Kit-Lemonfoot/kitlemonfoot_rvc_models/resolve/main/AZKi%20(Hybrid).zip', 'Azki']
+                        ['https://huggingface.co/Hev832/rvc/blob/main/Sonic.zip', 'Sonic'],
+                        ['https://huggingface.co/jkhgf/SLWooly/resolve/main/Jax.zip', 'Jax']
                     ],
                     [model_zip_link, model_name],
                     [],
@@ -293,7 +294,7 @@ if __name__ == '__main__':
                     pub_model_name = gr.Text(label='Model name')
 
                 with gr.Row():
-                    download_pub_btn = gr.Button('Download ', variant='primary', scale=19)
+                    download_pub_btn = gr.Button('Download', variant='primary', scale=19)
                     pub_dl_output_message = gr.Text(label='Output Message', interactive=False, scale=20)
 
                 filter_tags = gr.CheckboxGroup(value=[], label='Show voice models with tags', choices=[])
@@ -307,6 +308,7 @@ if __name__ == '__main__':
                 filter_tags.change(filter_models, inputs=[filter_tags, search_query], outputs=public_models_table)
                 download_pub_btn.click(download_online_model, inputs=[pub_zip_link, pub_model_name], outputs=pub_dl_output_message)
 
+       
 
     app.launch(
         share=args.share_enabled,
