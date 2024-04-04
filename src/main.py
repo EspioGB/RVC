@@ -108,7 +108,7 @@ def get_audio_paths(song_dir):
     backup_vocals_path = None
 
     for file in os.listdir(song_dir):
-        elif file.endswith('_Vocals_Main_DeReverb.wav'):
+        if file.endswith('_Vocals_Main_DeReverb.wav'):
             main_vocals_dereverb_path = os.path.join(song_dir, file)
 
         elif file.endswith('_Vocals_Backup.wav'):
