@@ -236,7 +236,7 @@ if __name__ == '__main__':
                 output_format = gr.Dropdown(['mp3', 'wav'], value='mp3', label='Output file type', info='mp3: small file size, decent quality. wav: Large file size, best quality')
 
             with gr.Row():
-                #clear_btn = gr.ClearButton(value='Clear', components=[song_input, rvc_model, keep_files, local_file])
+                clear_btn = gr.ClearButton(value='Clear', components=[song_input, rvc_model, keep_files, local_file])
                 generate_btn = gr.Button("Generate", variant='primary')
             with gr.Row():
                 ai_cover = gr.Audio(label='AI Cover ', show_share_button=False)
