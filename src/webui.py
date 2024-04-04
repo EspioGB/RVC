@@ -4,7 +4,6 @@ import shutil
 import urllib.request
 import zipfile
 from argparse import ArgumentParser
-
 import gradio as gr
 
 from main import song_cover_pipeline
