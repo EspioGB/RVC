@@ -13,7 +13,7 @@ An autonomous pipeline to create covers with any RVC v2 trained AI voice from Yo
 
 WebUI is under constant development and testing, but you can try it out right now on both local and colab!
 
-
+---
 
 ## Update to latest version
 
@@ -27,6 +27,8 @@ git pull
 For colab users, simply click `Runtime` in the top navigation bar of the colab notebook and `Disconnect and delete runtime` in the dropdown menu. 
 Then follow the instructions in the notebook to run the webui.
 
+---
+
 ## Colab notebook
 
 For those without a powerful enough NVIDIA GPU, you may try AICoverGen out using Google Colab.
@@ -39,19 +41,28 @@ For those who face issues with Google Colab notebook disconnecting after a few m
 
 For those who want to run this locally, follow the setup guide below.
 
+---
+
 ## Setup
+
 
 ### Install Git and Python
 
 Follow the instructions [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) to install Git on your computer. Also follow this [guide](https://realpython.com/installing-python/) to install Python **VERSION 3.9** if you haven't already. Using other versions of Python may result in dependency conflicts.
 
+---
+
 ### Install ffmpeg
 
 Follow the instructions [here](https://www.hostinger.com/tutorials/how-to-install-ffmpeg) to install ffmpeg on your computer.
 
+---
+
 ### Install sox
 
 Follow the instructions [here](https://www.tutorialexample.com/a-step-guide-to-install-sox-sound-exchange-on-windows-10-python-tutorial/) to install sox and add it to your Windows path environment.
+
+---
 
 ### Clone repository
 
@@ -62,6 +73,7 @@ git clone https://github.com/Blane187/HRVC.git
 cd HRVC
 pip install -r requirements.txt
 ```
+---
 
 ### Download required models
 
@@ -71,6 +83,7 @@ Run the following command to download the required MDXNET vocal separation model
 python src/download_models.py
 ```
 
+---
 
 ## Usage with WebUI
 
@@ -102,12 +115,13 @@ Once the 2 input fields are filled in, simply click `Download`! Once the output 
 
 ### Upload RVC models via WebUI
 
-
+---
 
 For people who have trained RVC v2 models locally and would like to use them for AI Cover generations.
 Navigate to the `Upload model` tab, and follow the instructions.
 Once the output message says `[NAME] Model successfully uploaded!`, you should be able to use it in the `Generate` tab after clicking the refresh models button!
 
+---
 
 ### Running the pipeline via WebUI
 
@@ -172,6 +186,28 @@ python src/main.py [-h] -i SONG_INPUT -dir RVC_DIRNAME -p PITCH_CHANGE [-k | --k
 | `-rdamp REVERB_DAMPING`                    | Optional. Default 0.7. Absorption of high frequencies in the reverb. 0 <= REVERB_DAMPING <= 1. |
 | `-oformat OUTPUT_FORMAT`                   | Optional. Default mp3. wav for best quality and large file size, mp3 for decent quality and small file size. |
 
+---
+
+## Changelog
+
+- WebUI for more easier conversions and downloading of voice models
+- Support for cover generations from a local audio file
+- Option to keep intermediate files generated. e.g. Isolated vocals/instrumentals
+- Download suggested public voice models from table with search/tag filters
+- Support for Pixeldrain download links for voice models
+- Implement new rmvpe pitch extraction technique for faster and higher quality vocal conversions
+- Volume control for AI main vocals, backup vocals and instrumentals
+- Index Rate for Voice conversion
+- Reverb Control for AI main vocals
+- Local network sharing option for webui
+- Extra RVC options - filter_radius, rms_mix_rate, protect
+- Local file upload via file browser option
+- Upload of locally trained RVC v2 models via WebUI
+- Pitch detection method control, e.g. rmvpe/mangio-crepe
+- Pitch change for vocals and instrumentals together. Same effect as changing key of song in Karaoke.
+- Audio output format option: wav or mp3.
+
+---
 
 ## Terms of Use
 
@@ -191,25 +227,5 @@ The use of the converted voice for the following purposes is prohibited.
 
 
 
+The use of the converted voice for the follo
 
-
-
-## Changelog
-
-
-- WebUI for more easier conversions and downloading of voice models
-- Support for cover generations from a local audio file
-- Option to keep intermediate files generated. e.g. Isolated vocals/instrumentals
-- Download suggested public voice models from table with search/tag filters
-- Support for Pixeldrain download links for voice models
-- Implement new rmvpe pitch extraction technique for faster and higher quality vocal conversions
-- Volume control for AI main vocals, backup vocals and instrumentals
-- Index Rate for Voice conversion
-- Reverb Control for AI main vocals
-- Local network sharing option for webui
-- Extra RVC options - filter_radius, rms_mix_rate, protect
-- Local file upload via file browser option
-- Upload of locally trained RVC v2 models via WebUI
-- Pitch detection method control, e.g. rmvpe/mangio-crepe
-- Pitch change for vocals and instrumentals together. Same effect as changing key of song in Karaoke.
-- Audio output format option: wav or mp3.
