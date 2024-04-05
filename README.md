@@ -9,7 +9,6 @@ WebUI is under constant development and testing, but you can try it out right no
 
 
 - WebUI for more easier conversions and downloading of voice models
-- Vocal only conversions
 - Support for cover generations from a local audio file
 - Option to keep intermediate files generated. e.g. Isolated vocals/instrumentals
 - Download suggested public voice models from table with search/tag filters
