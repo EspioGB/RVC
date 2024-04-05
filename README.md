@@ -13,25 +13,7 @@ An autonomous pipeline to create covers with any RVC v2 trained AI voice from Yo
 
 WebUI is under constant development and testing, but you can try it out right now on both local and colab!
 
-## Changelog
 
-
-- WebUI for more easier conversions and downloading of voice models
-- Support for cover generations from a local audio file
-- Option to keep intermediate files generated. e.g. Isolated vocals/instrumentals
-- Download suggested public voice models from table with search/tag filters
-- Support for Pixeldrain download links for voice models
-- Implement new rmvpe pitch extraction technique for faster and higher quality vocal conversions
-- Volume control for AI main vocals, backup vocals and instrumentals
-- Index Rate for Voice conversion
-- Reverb Control for AI main vocals
-- Local network sharing option for webui
-- Extra RVC options - filter_radius, rms_mix_rate, protect
-- Local file upload via file browser option
-- Upload of locally trained RVC v2 models via WebUI
-- Pitch detection method control, e.g. rmvpe/mangio-crepe
-- Pitch change for vocals and instrumentals together. Same effect as changing key of song in Karaoke.
-- Audio output format option: wav or mp3.
 
 ## Update to latest version
 
@@ -51,9 +33,9 @@ For those without a powerful enough NVIDIA GPU, you may try AICoverGen out using
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Blane187/HRVC/blob/main/HRVC.ipynb)
 
-For those who face issues with Google Colab notebook disconnecting after a few minutes, here's an alternative that doesn't use the WebUI.
+For those who face issues with Google Colab notebook disconnecting after a few minutes, here's an Cli version.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ardha27/AICoverGen-NoUI-Colab/blob/main/CoverGen_No_UI.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Blane187/HRVC/blob/main/HRVC_Cli.ipynb)
 
 For those who want to run this locally, follow the setup guide below.
 
@@ -207,6 +189,27 @@ The use of the converted voice for the following purposes is prohibited.
 
 * Fraudulent purposes that lead to identity theft or fraudulent phone calls.
 
-## Disclaimer
 
-I am not liable for any direct, indirect, consequential, incidental, or special damages arising out of or in any way connected with the use/misuse or inability to use this software.
+
+
+
+
+## Changelog
+
+
+- WebUI for more easier conversions and downloading of voice models
+- Support for cover generations from a local audio file
+- Option to keep intermediate files generated. e.g. Isolated vocals/instrumentals
+- Download suggested public voice models from table with search/tag filters
+- Support for Pixeldrain download links for voice models
+- Implement new rmvpe pitch extraction technique for faster and higher quality vocal conversions
+- Volume control for AI main vocals, backup vocals and instrumentals
+- Index Rate for Voice conversion
+- Reverb Control for AI main vocals
+- Local network sharing option for webui
+- Extra RVC options - filter_radius, rms_mix_rate, protect
+- Local file upload via file browser option
+- Upload of locally trained RVC v2 models via WebUI
+- Pitch detection method control, e.g. rmvpe/mangio-crepe
+- Pitch change for vocals and instrumentals together. Same effect as changing key of song in Karaoke.
+- Audio output format option: wav or mp3.
