@@ -225,14 +225,14 @@ if __name__ == '__main__':
                     backup_gain = gr.Slider(-20, 20, value=0, step=1, label='Backup Vocals')
                     inst_gain = gr.Slider(-20, 20, value=0, step=1, label='Music')
 
-                gr.Accordion('### Reverb Control on AI Vocals', open=False)
+              with gr.Accordion('### Reverb Control on AI Vocals', open=False)
                 with gr.Row():
                     reverb_rm_size = gr.Slider(0, 1, value=0.15, label='Room size', info='The larger the room, the longer the reverb time')
                     reverb_wet = gr.Slider(0, 1, value=0.2, label='Wetness level', info='Level of AI vocals with reverb')
                     reverb_dry = gr.Slider(0, 1, value=0.8, label='Dryness level', info='Level of AI vocals without reverb')
                     reverb_damping = gr.Slider(0, 1, value=0.7, label='Damping level', info='Absorption of high frequencies in the reverb')
 
-                gr.Accordion('### Audio Output Format', open=False)
+               with gr.Accordion('### Audio Output Format', open=False)
                 output_format = gr.Dropdown(['mp3', 'wav'], value='mp3', label='Output file type', info='mp3: small file size, decent quality. wav: Large file size, best quality')
 
             with gr.Row():
@@ -273,7 +273,7 @@ if __name__ == '__main__':
                 gr.Examples(
                     [
                         ['https://huggingface.co/phant0m4r/LiSA/resolve/main/LiSA.zip', 'Lisa'],
-                        ['https://huggingface.co/Hev832/rvc/blob/main/Sonic.zip', 'Sonic'],
+                        ['https://huggingface.co/Hev832/rvc/resolve/main/Sonic.zip?download=true', 'Sonic'],
                         ['https://huggingface.co/jkhgf/SLWooly/resolve/main/Jax.zip', 'Jax']
                     ],
                     [model_zip_link, model_name],
