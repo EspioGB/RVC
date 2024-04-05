@@ -1,4 +1,4 @@
-<div style="text-align: center;">HRVC.</div>
+<center>HRVC</center>
 
 
 
