@@ -225,14 +225,14 @@ if __name__ == '__main__':
                     backup_gain = gr.Slider(-20, 20, value=0, step=1, label='Backup Vocals')
                     inst_gain = gr.Slider(-20, 20, value=0, step=1, label='Music')
 
-                gr.Markdown('### Reverb Control on AI Vocals')
+                gr.Accordion('### Reverb Control on AI Vocals', open=False)
                 with gr.Row():
                     reverb_rm_size = gr.Slider(0, 1, value=0.15, label='Room size', info='The larger the room, the longer the reverb time')
                     reverb_wet = gr.Slider(0, 1, value=0.2, label='Wetness level', info='Level of AI vocals with reverb')
                     reverb_dry = gr.Slider(0, 1, value=0.8, label='Dryness level', info='Level of AI vocals without reverb')
                     reverb_damping = gr.Slider(0, 1, value=0.7, label='Damping level', info='Absorption of high frequencies in the reverb')
 
-                gr.Markdown('### Audio Output Format')
+                gr.Accordion('### Audio Output Format', open=False)
                 output_format = gr.Dropdown(['mp3', 'wav'], value='mp3', label='Output file type', info='mp3: small file size, decent quality. wav: Large file size, best quality')
 
             with gr.Row():
@@ -269,7 +269,7 @@ if __name__ == '__main__':
 
                 download_btn.click(download_online_model, inputs=[model_zip_link, model_name], outputs=dl_output_message)
 
-                gr.Markdown('## Input Examples')
+                gr.Markdown('## Input Examples',)
                 gr.Examples(
                     [
                         ['https://huggingface.co/phant0m4r/LiSA/resolve/main/LiSA.zip', 'Lisa'],
@@ -281,7 +281,7 @@ if __name__ == '__main__':
                     download_online_model,
                 )
 
-            with gr.Tab('From Public Index'):
+            with gr.Accordion('From Public Index'):
 
                 gr.Markdown('## How to use')
                 gr.Markdown('- Click Initialize public models table')
