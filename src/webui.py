@@ -225,7 +225,7 @@ if __name__ == '__main__':
                     backup_gain = gr.Slider(-20, 20, value=0, step=1, label='Backup Vocals')
                     inst_gain = gr.Slider(-20, 20, value=0, step=1, label='Music')
 
-              with gr.Accordion('### Reverb Control on AI Vocals', open=False):
+              gr.Markdown('### Reverb Control on AI Vocals')
                 with gr.Row():
                     reverb_rm_size = gr.Slider(0, 1, value=0.15, label='Room size', info='The larger the room, the longer the reverb time')
                     reverb_wet = gr.Slider(0, 1, value=0.2, label='Wetness level', info='Level of AI vocals with reverb')
