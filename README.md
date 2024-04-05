@@ -151,7 +151,7 @@ Once all Main Options are filled in, click `Generate` and the AI generated cover
 Unzip (if needed) and transfer the `.pth` and `.index` files to a new folder in the [rvc_models](rvc_models) directory. Each folder should only contain one `.pth` and one `.index` file.
 
 The directory structure should look something like this:
-[![example](https://github.com/Blane187/HRVC/raw/main/images/example.png)]
+![example](https://github.com/Blane187/HRVC/raw/main/images/example.png)
 
 ### Running the pipeline
 
