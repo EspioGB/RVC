@@ -177,7 +177,7 @@ if __name__ == '__main__':
     with open(os.path.join(rvc_models_dir, 'public_models.json'), encoding='utf8') as infile:
         public_models = json.load(infile)
 
-    with gr.Blocks(theme='Hev832/emerald', title='HRVC') as app:
+    with gr.Blocks(theme='otit/sky-blue', title='HRVC') as app:
 
         #gr.Label('AICoverGen WebUI created with ❤️', show_label=False)
 
@@ -258,7 +258,7 @@ if __name__ == '__main__':
         # Download tab
         with gr.Tab('Download model'):
 
-            with gr.Tab('From HuggingFace/Pixeldrain URL'):
+            with gr.Accordion('From HuggingFace/Pixeldrain URL', open=True):
                 with gr.Row():
                     model_zip_link = gr.Text(label='Download link to model', info='Should be a zip file containing a .pth model file and an optional .index file.')
                     model_name = gr.Text(label='Name your model', info='Give your new model a unique name from your other voice models.')
@@ -281,7 +281,7 @@ if __name__ == '__main__':
                     download_online_model,
                 )
 
-            with gr.Accordion('From Public Index'):
+            with gr.Accordion('From Public Index', open=False):
 
                 gr.Markdown('## How to use')
                 gr.Markdown('- Click Initialize public models table')
