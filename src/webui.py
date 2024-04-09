@@ -177,12 +177,12 @@ if __name__ == '__main__':
     with open(os.path.join(rvc_models_dir, 'public_models.json'), encoding='utf8') as infile:
         public_models = json.load(infile)
 
-    with gr.Blocks(theme='Hev832/emerald', title='AICoverGenWebUI') as app:
-  
+    with gr.Blocks(theme='Hev832/emerald', title='HRVC-tab 💻') as app:
+
+        gr.Markdown('# HRVC 💻')
+        
         # main tab
         with gr.Tab("Generate"):
-
-           gr.Markdown('# HRVC 💻')
         
             with gr.Accordion('Main Options'):
                 with gr.Row():
