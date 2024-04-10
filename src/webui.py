@@ -241,7 +241,7 @@ if __name__ == '__main__':
             with gr.Row():
                 ai_cover = gr.Audio(label='AI Cover', show_share_button=False)
             with gr.Row():
-                ai_backing = gr.Audio(label='AI Cover', show_share_button=False)
+                ai_backing = gr.Audio(label='AI Cover with backing', show_share_button=False)
 
             ref_btn.click(update_models_list, None, outputs=rvc_model)
             is_webui = gr.Number(value=1, visible=False)
