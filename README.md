@@ -201,7 +201,7 @@ python src/main.py [-h] -i SONG_INPUT -dir RVC_DIRNAME -p PITCH_CHANGE [-k | --k
 - Extra RVC options - filter_radius, rms_mix_rate, protect
 - Local file upload via file browser option
 - Upload of locally trained RVC v2 models via WebUI
-- Pitch detection method control, e.g. rmvpe/mangio-crepe
+- Pitch detection method control, e.g. rmvpe/mangio-crepe/crepe-tiny/dio etc
 - Pitch change for vocals and instrumentals together. Same effect as changing key of song in Karaoke.
 - Audio output format option: wav or mp3.
 
@@ -224,6 +224,4 @@ The use of the converted voice for the following purposes is prohibited.
 * Fraudulent purposes that lead to identity theft or fraudulent phone calls.
 
 
-
-The use of the converted voice for the follo
 
