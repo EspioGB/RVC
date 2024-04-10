@@ -2,6 +2,8 @@
 git clone https://github.com/Blane187/HRVC.git
 cd HRVC
 echo done cloning repository
+
+echo Installing the dependencies...
 pip install -r requirements.txt
 pip install gradio-client==0.8.1
 pip install gradio==3.48.0
@@ -12,3 +14,8 @@ echo success install requirements.txt
 python src/download_models.py
 echo done install hubert and mdxnet models
 python src/webui.py
+echo.
+
+echo HRVC has been installed successfully, run 'run-applio.bat' to start it!
+pause
+cls
