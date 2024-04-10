@@ -188,7 +188,7 @@ if __name__ == '__main__':
                 with gr.Row():
                     with gr.Column():
                         rvc_model = gr.Dropdown(voice_models, label='Voice Models', info='Models folder "AICoverGen --> rvc_models". After new models are added into this folder, click the refresh button')
-                        ref_btn = gr.Button('Refresh Models 🔁', variant='primary')
+                        ref_btn = gr.Button('Refresh Models', variant='primary')
 
                     with gr.Column() as yt_link_col:
                         song_input = gr.Text(label='Song input', info='Link to a song on YouTube or full path to a local file. For file upload, click the button below.')
@@ -196,7 +196,7 @@ if __name__ == '__main__':
 
                     with gr.Column(visible=False) as file_upload_col:
                         local_file = gr.File(label='Audio file')
-                        song_input_file = gr.UploadButton('Upload 📂', file_types=['audio'], variant='primary')
+                        song_input_file = gr.UploadButton('Upload', file_types=['audio'], variant='primary')
                         show_yt_link_button = gr.Button('Paste YouTube link/Path to local file instead')
                         song_input_file.upload(process_file_upload, inputs=[song_input_file], outputs=[local_file, song_input])
 
@@ -239,8 +239,8 @@ if __name__ == '__main__':
                 clear_btn = gr.ClearButton(value='Clear', components=[song_input, rvc_model, keep_files, local_file])
                 generate_btn = gr.Button("Generate", variant='primary')
             with gr.Row():
-                ai_cover = gr.Audio(label='AI Cover (Vocal Only Inference)', show_share_button=False)
-                ai_backing = gr.Audio(label='AI Cover (Vocal Backing Inference)', show_share_button=False)
+                #ai_cover = gr.Audio(label='AI Cover', show_share_button=False)
+                ai_backing = gr.Audio(label='AI Cover', show_share_button=False)
 
             ref_btn.click(update_models_list, None, outputs=rvc_model)
             is_webui = gr.Number(value=1, visible=False)
@@ -249,11 +249,11 @@ if __name__ == '__main__':
                                        inst_gain, index_rate, filter_radius, rms_mix_rate, f0_method, crepe_hop_length,
                                        protect, pitch_all, reverb_rm_size, reverb_wet, reverb_dry, reverb_damping,
                                        output_format],
-                               outputs=[ai_cover, ai_backing])
+                               outputs=[ai_backing])
             clear_btn.click(lambda: [0, 0, 0, 0, 0.5, 3, 0.25, 0.33, 'rmvpe', 128, 0, 0.15, 0.2, 0.8, 0.7, 'mp3', None],
                             outputs=[pitch, main_gain, backup_gain, inst_gain, index_rate, filter_radius, rms_mix_rate,
                                      protect, f0_method, crepe_hop_length, pitch_all, reverb_rm_size, reverb_wet,
-                                     reverb_dry, reverb_damping, output_format, ai_cover])
+                                     reverb_dry, reverb_damping, output_format, ai_backing])
 
         # Download tab
         with gr.Tab('Download model'):
@@ -264,7 +264,7 @@ if __name__ == '__main__':
                     model_name = gr.Text(label='Name your model', info='Give your new model a unique name from your other voice models.')
 
                 with gr.Row():
-                    download_btn = gr.Button('Download 🌐', variant='primary', scale=19)
+                    download_btn = gr.Button('Download', variant='primary', scale=19)
                     dl_output_message = gr.Text(label='Output Message', interactive=False, scale=20)
 
                 download_btn.click(download_online_model, inputs=[model_zip_link, model_name], outputs=dl_output_message)
