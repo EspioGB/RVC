@@ -16,6 +16,6 @@ echo done install hubert and mdxnet models
 python src/webui.py
 echo.
 
-echo HRVC has been installed successfully, run 'run-applio.bat' to start it!
+echo HRVC has been installed successfully, run 'run.bat' to start it!
 pause
 cls
