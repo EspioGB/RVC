@@ -31,11 +31,7 @@ An autonomous pipeline to create covers with any RVC v2 trained AI voice from Yo
 
 For those without a powerful enough NVIDIA GPU, you may try AICoverGen out using Google Colab.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Blane187/HRVC/blob/main/HRVC.ipynb)
-
-*For those who face issues with Google Colab notebook disconnecting after a few minutes, here's an Cli version.*
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Blane187/HRVC/blob/main/HRVC_Cli.ipynb)
+[![Open In Colab](https://img.shields.io/badge/google_colab-F9AB00?style=flat-square&logo=googlecolab&logoColor=white)](https://colab.research.google.com/github/Blane187/HRVC/blob/main/HRVC.ipynb)<br>*For those who face issues with Google Colab notebook disconnecting after a few minutes, here's an Cli version.*<br>[![Open In Colab](https://img.shields.io/badge/google_colab-F9AB00?style=flat-square&logo=googlecolab&logoColor=white)](https://colab.research.google.com/github/Blane187/HRVC/blob/main/HRVC_Cli.ipynb)
 
 ---
 
