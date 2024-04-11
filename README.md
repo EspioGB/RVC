@@ -5,7 +5,7 @@
 <h1 align="center"></h1>
 <div align="center">
 
-[🌐 Playgound version here](https://huggingface.co/spaces/otit/hrvc_playground)
+[🌐 HRVC Playground version here](https://huggingface.co/spaces/otit/hrvc_playground)
 
 ---
 
