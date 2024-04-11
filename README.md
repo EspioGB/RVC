@@ -1,3 +1,7 @@
+<h1 align="center">
+  <a href="https://github.com/Blane187/HRVC" target="_blank"><img src="https://huggingface.co/otit/Project/resolve/main/hrvc.png" alt="HRVC"></a>
+</h1>
+
 <h1 align="center">HRVC</h1>
 <div align="center">
 
