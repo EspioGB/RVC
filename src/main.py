@@ -288,7 +288,7 @@ def song_cover_pipeline(song_input, voice_model, pitch_change, keep_files,
 
         ai_cover_path = os.path.join(song_dir, f'{os.path.splitext(os.path.basename(orig_song_path))[0]} ({voice_model} Ver).{output_format}')
         ai_cover_backing_path = os.path.join(song_dir, f'{os.path.splitext(os.path.basename(orig_song_path))[0]} ({voice_model} Ver With Backing).{output_format}')
-        vocal_mix = os.path.join(song_dir, f'{os.path.splitext(os.path.basename(orig_song_path))[0]} ({voice_model} mix vocal only).{output_format}')
+        vocal_mix_path = os.path.join(song_dir, f'{os.path.splitext(os.path.basename(orig_song_path))[0]} ({voice_model} mix vocal only).{output_format}')
 
         
         if not os.path.exists(ai_vocals_path):
@@ -313,7 +313,7 @@ def song_cover_pipeline(song_input, voice_model, pitch_change, keep_files,
         display_progress('[~] Combining vocal and instrumental...', 0.9, is_webui, progress)
         combine_audio([ai_vocals_mixed_path, backup_vocals_path, instrumentals_path], ai_cover_path, main_gain, backup_gain, inst_gain, output_format)
         combine_audio([ai_vocals_mixed_path, ai_backing_mixed_path, instrumentals_path], ai_cover_backing_path, main_gain, backup_gain, inst_gain, output_format)
-        combine_audio([ai_vocals_mixed_path, ai_backing_mixed_path], vocal_mix, main_gain, backup_gain, inst_gain, output_format)
+        combine_audio([ai_vocals_mixed_path, ai_backing_mixed_path], vocal_mix_path, main_gain, backup_gain, inst_gain, output_format)
 
         
         if not keep_files:
