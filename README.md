@@ -6,11 +6,14 @@
 <div align="center">
 
 
-HRVC HF version here:<br>[![Huggingface](https://img.shields.io/badge/🤗%20-Spaces-yellow.svg?style=for-the-badge)](https://huggingface.co/spaces/otit/hrvc_playground)
 
 ---
 
 An autonomous pipeline to create covers with any RVC v2 trained AI voice from YouTube videos or a local audio file. For developers who may want to add a singing functionality into their AI assistant/chatbot/vtuber, or for people who want to hear their favourite characters sing their favourite song.
+
+---
+
+HRVC HF version here:<br>[![Huggingface](https://img.shields.io/badge/🤗%20-Spaces-yellow.svg?style=for-the-badge)](https://huggingface.co/spaces/otit/hrvc_playground)
 
 ---
 
