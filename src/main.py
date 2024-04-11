@@ -23,7 +23,7 @@ from rvc import Config, load_hubert, get_vc, rvc_infer
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-mdxnet_models_dir = os.path.join(BASE_DIR, 'mdxnet')
+mdxnet_models_dir = os.path.join(BASE_DIR, 'mdxnet_models')
 rvc_models_dir = os.path.join(BASE_DIR, 'rvc_models')
 output_dir = os.path.join(BASE_DIR, 'song_output')
 
@@ -107,6 +107,53 @@ def get_audio_paths(song_dir):
     instrumentals_path = None
     main_vocals_dereverb_path = None
     backup_vocals_path = None
+
+    for file in os.listdir(song_dir):
+        if file.endswith('_Instrumental.wav'):
+            instrumentals_path = os.path.join(song_dir, file)
+            orig_song_path = instrumentals_path.replace('_Instrumental', '')
+
+        elif file.endswith('_Vocals_Main_DeReverb.wav'):
+            main_vocals_dereverb_path = os.path.join(song_dir, file)
+
+        elif file.endswith('_Vocals_Backup.wav'):
+            backup_vocals_path = os.path.join(song_dir, file)
+
+    return orig_song_path, instrumentals_path, main_vocals_dereverb_path, backup_vocals_path
+
+
+def convert_to_stereo(audio_path):
+    wave, sr = librosa.load(audio_path, mono=False, sr=44100)
+
+    # check if mono
+    if type(wave[0]) != np.ndarray:
+        stereo_path = f'{os.path.splitext(audio_path)[0]}_stereo.wav'
+        command = shlex.split(f'ffmpeg -y -loglevel error -i "{audio_path}" -ac 2 -f wav "{stereo_path}"')
+        subprocess.run(command)
+        return stereo_path
+    else:
+        return audio_path
+
+
+def pitch_shift(audio_path, pitch_change):
+    output_path = f'{os.path.splitext(audio_path)[0]}_p{pitch_change}.wav'
+    if not os.path.exists(output_path):
+        y, sr = sf.read(audio_path)
+        tfm = sox.Transformer()
+        tfm.pitch(pitch_change)
+        y_shifted = tfm.build_array(input_array=y, sample_rate_in=sr)
+        sf.write(output_path, y_shifted, sr)
+
+    return output_path
+
+
+def get_hash(filepath):
+    with open(filepath, 'rb') as f:
+        file_hash = hashlib.blake2b()
+        while chunk := f.read(8192):
+            file_hash.update(chunk)
+
+    return file_hash.hexdigest()[:11]
 
 
 def display_progress(message, percent, is_webui, progress=None):
@@ -238,12 +285,10 @@ def song_cover_pipeline(song_input, voice_model, pitch_change, keep_files,
         pitch_change = pitch_change + pitch_change_all
         ai_vocals_path = os.path.join(song_dir, f'lead |{voice_model}|{os.path.splitext(os.path.basename(orig_song_path))[0]}.wav')
         ai_backing_path = os.path.join(song_dir, f'backing |{voice_model}|{os.path.splitext(os.path.basename(orig_song_path))[0]}.wav')
-       
-        
+
         ai_cover_path = os.path.join(song_dir, f'{os.path.splitext(os.path.basename(orig_song_path))[0]} ({voice_model} Ver).{output_format}')
         ai_cover_backing_path = os.path.join(song_dir, f'{os.path.splitext(os.path.basename(orig_song_path))[0]} ({voice_model} Ver With Backing).{output_format}')
-        
-        
+
         if not os.path.exists(ai_vocals_path):
             display_progress('[~] Converting lead voice using RVC...', 0.5, is_webui, progress)
             voice_change(voice_model, main_vocals_dereverb_path, ai_vocals_path, pitch_change, f0_method, index_rate, filter_radius, rms_mix_rate, protect, crepe_hop_length, is_webui)
@@ -315,4 +360,4 @@ if __name__ == '__main__':
                                      reverb_rm_size=args.reverb_size, reverb_wet=args.reverb_wetness,
                                      reverb_dry=args.reverb_dryness, reverb_damping=args.reverb_damping,
                                      output_format=args.output_format)
-    print(f'[+] ➡️ Cover generated at {cover_path}')
+    print(f'[+] Cover generated at {cover_path}')
