@@ -23,10 +23,24 @@ An autonomous pipeline to create covers with any RVC v2 trained AI voice from Yo
 
 ---
 
+**WebUI is under constant development and testing, but you can try it out right now on both local and colab!**
 
+---
 
+## Colab notebook
 
-WebUI is under constant development and testing, but you can try it out right now on both local and colab!
+For those without a powerful enough NVIDIA GPU, you may try AICoverGen out using Google Colab.
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Blane187/HRVC/blob/main/HRVC.ipynb)
+
+*For those who face issues with Google Colab notebook disconnecting after a few minutes, here's an Cli version.*
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Blane187/HRVC/blob/main/HRVC_Cli.ipynb)
+
+---
+
+***"For colab users, simply click `Runtime` in the top navigation bar of the colab notebook and `Disconnect and delete runtime` in the dropdown menu. 
+Then follow the instructions in the notebook to run the webui."***
 
 ---
 
@@ -39,20 +53,8 @@ pip install -r requirements.txt
 git pull
 ```
 
-For colab users, simply click `Runtime` in the top navigation bar of the colab notebook and `Disconnect and delete runtime` in the dropdown menu. 
-Then follow the instructions in the notebook to run the webui.
 
 ---
-
-## Colab notebook
-
-For those without a powerful enough NVIDIA GPU, you may try AICoverGen out using Google Colab.
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Blane187/HRVC/blob/main/HRVC.ipynb)
-
-For those who face issues with Google Colab notebook disconnecting after a few minutes, here's an Cli version.
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Blane187/HRVC/blob/main/HRVC_Cli.ipynb)
 
 For those who want to run this locally, follow the setup guide below.
 
