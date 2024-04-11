@@ -132,14 +132,6 @@ The downloaded zip file should contain the .pth model file and an optional .inde
 
 Once the 2 input fields are filled in, simply click `Download`! Once the output message says `[NAME] Model successfully downloaded!`, you should be able to use it in the `Generate` tab after clicking the refresh models button!
 
-### Upload RVC models via WebUI
-
----
-
-For people who have trained RVC v2 models locally and would like to use them for AI Cover generations.
-Navigate to the `Upload model` tab, and follow the instructions.
-Once the output message says `[NAME] Model successfully uploaded!`, you should be able to use it in the `Generate` tab after clicking the refresh models button!
-
 ---
 
 ### Running the pipeline via WebUI
