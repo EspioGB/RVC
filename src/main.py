@@ -108,53 +108,6 @@ def get_audio_paths(song_dir):
     main_vocals_dereverb_path = None
     backup_vocals_path = None
 
-    for file in os.listdir(song_dir):
-        if file.endswith('_Instrumental.wav'):
-            instrumentals_path = os.path.join(song_dir, file)
-            orig_song_path = instrumentals_path.replace('_Instrumental', '')
-
-        elif file.endswith('_Vocals_Main_DeReverb.wav'):
-            main_vocals_dereverb_path = os.path.join(song_dir, file)
-
-        elif file.endswith('_Vocals_Backup.wav'):
-            backup_vocals_path = os.path.join(song_dir, file)
-
-    return orig_song_path, instrumentals_path, main_vocals_dereverb_path, backup_vocals_path
-
-
-def convert_to_stereo(audio_path):
-    wave, sr = librosa.load(audio_path, mono=False, sr=44100)
-
-    # check if mono
-    if type(wave[0]) != np.ndarray:
-        stereo_path = f'{os.path.splitext(audio_path)[0]}_stereo.wav'
-        command = shlex.split(f'ffmpeg -y -loglevel error -i "{audio_path}" -ac 2 -f wav "{stereo_path}"')
-        subprocess.run(command)
-        return stereo_path
-    else:
-        return audio_path
-
-
-def pitch_shift(audio_path, pitch_change):
-    output_path = f'{os.path.splitext(audio_path)[0]}_p{pitch_change}.wav'
-    if not os.path.exists(output_path):
-        y, sr = sf.read(audio_path)
-        tfm = sox.Transformer()
-        tfm.pitch(pitch_change)
-        y_shifted = tfm.build_array(input_array=y, sample_rate_in=sr)
-        sf.write(output_path, y_shifted, sr)
-
-    return output_path
-
-
-def get_hash(filepath):
-    with open(filepath, 'rb') as f:
-        file_hash = hashlib.blake2b()
-        while chunk := f.read(8192):
-            file_hash.update(chunk)
-
-    return file_hash.hexdigest()[:11]
-
 
 def display_progress(message, percent, is_webui, progress=None):
     if is_webui:
@@ -314,7 +267,7 @@ def song_cover_pipeline(song_input, voice_model, pitch_change, keep_files,
         display_progress('[~] Combining vocal and instrumental...', 0.9, is_webui, progress)
         combine_audio([ai_vocals_mixed_path, backup_vocals_path, instrumentals_path], ai_cover_path, main_gain, backup_gain, inst_gain, output_format)
         combine_audio([ai_vocals_mixed_path, ai_backing_mixed_path, instrumentals_path], ai_cover_backing_path, main_gain, backup_gain, inst_gain, output_format)
-        combine_audio([ai_vocals_mixed_path, ai_backing_mixed_path], vocal_mixed_path, main_gain, backup_gain, inst_gain, output_format)
+        combine_audio([ai_vocals_mixed_path, ai_backing_mixed_path, backup_vocals_path], vocal_mixed_path, main_gain, backup_gain, inst_gain, output_format)
         
         
         if not keep_files:
