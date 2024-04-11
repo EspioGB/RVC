@@ -187,7 +187,7 @@ if __name__ == '__main__':
             with gr.Accordion('Main Options'):
                 with gr.Row():
                     with gr.Column():
-                        rvc_model = gr.Dropdown(voice_models, label='Voice Models', info='Models folder "AICoverGen --> rvc_models". After new models are added into this folder, click the refresh button')
+                        rvc_model = gr.Dropdown(voice_models, label='Voice Models', info='Models folder "HRVC --> rvc_models". After new models are added into this folder, click the refresh button')
                         ref_btn = gr.Button('Refresh Models', variant='primary')
 
                     with gr.Column() as yt_link_col:
