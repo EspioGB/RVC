@@ -48,7 +48,7 @@ Then follow the instructions in the notebook to run the webui."***
 
 ## Update to latest version
 
-Install and pull any new requirements and changes by opening a command line window in the `AICoverGen` directory and running the following commands.
+Install and pull any new requirements and changes by opening a command line window in the `HRVC` directory and running the following commands.
 
 ```
 pip install -r requirements.txt
