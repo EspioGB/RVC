@@ -6,7 +6,7 @@
 <div align="center">
 
 
- HRVC Playground version here:<br>[![Huggingface](https://img.shields.io/badge/🤗%20-Spaces-yellow.svg?style=for-the-badge)](https://huggingface.co/spaces/otit/hrvc_playground)
+HRVC HF version here:<br>[![Huggingface](https://img.shields.io/badge/🤗%20-Spaces-yellow.svg?style=for-the-badge)](https://huggingface.co/spaces/otit/hrvc_playground)
 
 ---
 
