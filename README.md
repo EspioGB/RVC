@@ -192,26 +192,6 @@ python src/main.py [-h] -i SONG_INPUT -dir RVC_DIRNAME -p PITCH_CHANGE [-k | --k
 | `-rdamp REVERB_DAMPING`                    | Optional. Default 0.7. Absorption of high frequencies in the reverb. 0 <= REVERB_DAMPING <= 1. |
 | `-oformat OUTPUT_FORMAT`                   | Optional. Default mp3. wav for best quality and large file size, mp3 for decent quality and small file size. |
 
----
-
-## Changelog
-
-- WebUI for more easier conversions and downloading of voice models
-- Support for cover generations from a local audio file
-- Option to keep intermediate files generated. e.g. Isolated vocals/instrumentals
-- Download suggested public voice models from table with search/tag filters
-- Support for Pixeldrain download links for voice models
-- Implement new rmvpe pitch extraction technique for faster and higher quality vocal conversions
-- Volume control for AI main vocals, backup vocals and instrumentals
-- Index Rate for Voice conversion
-- Reverb Control for AI main vocals
-- Local network sharing option for webui
-- Extra RVC options - filter_radius, rms_mix_rate, protect
-- Local file upload via file browser option
-- Upload of locally trained RVC v2 models via WebUI
-- Pitch detection method control, e.g. rmvpe/mangio-crepe/crepe-tiny/dio etc
-- Pitch change for vocals and instrumentals together. Same effect as changing key of song in Karaoke.
-- Audio output format option: wav or mp3.
 
 ---
 
