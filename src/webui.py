@@ -177,7 +177,7 @@ if __name__ == '__main__':
     with open(os.path.join(rvc_models_dir, 'public_models.json'), encoding='utf8') as infile:
         public_models = json.load(infile)
 
-    with gr.Blocks(theme='otit/violet', title='HRVC-tab 💻') as app:
+    with gr.Blocks(theme='ParityError/Interstellar', title='HRVC-tab 💻') as app:
 
         gr.Markdown('# HRVC 💻')
         
@@ -238,7 +238,6 @@ if __name__ == '__main__':
             with gr.Row():
                 clear_btn = gr.ClearButton(value='Clear', components=[song_input, rvc_model, keep_files, local_file])
                 generate_btn = gr.Button("Generate", variant='primary')
-        with gr.Accordion('outputs', open=True):
             with gr.Row():
                 ai_cover = gr.Audio(label='AI Cover', show_share_button=False)
             with gr.Row():
