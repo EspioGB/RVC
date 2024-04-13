@@ -13,15 +13,15 @@ An autonomous pipeline to create covers with any RVC v2 trained AI voice from Yo
 
 ---
 
-HRVC HF version here:<br>[![Huggingface](https://img.shields.io/badge/🤗%20-Spaces-yellow.svg?style=for-the-badge)](https://huggingface.co/spaces/otit/hrvc_playground)
+HRVC HF version here:<br>[![Huggingface](https://img.shields.io/badge/🤗%20-Spaces-yellow.svg?style=for-the-badge)](https://huggingface.co/spaces/HRVC/HRVC)
 
 ---
 
 # main contributor
 
-* [SociallyIneptWeeb](https://github.com/SociallyIneptWeeb)
-
 * [Blane187](https://github.com/Blane187)
+
+* [SociallyIneptWeeb](https://github.com/SociallyIneptWeeb)
 
 * [MrTimoxaYT](https://github.com/MrTimoxaYT)
 
