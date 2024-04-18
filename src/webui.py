@@ -258,7 +258,6 @@ if __name__ == '__main__':
                                      reverb_dry, reverb_damping, output_format, ai_cover, ai_backing])
 
         # Download tab
-    with gr.Tab("download voice models"):
         with gr.Accordion('Download model', open=False):
 
             with gr.Tab('From HuggingFace/Pixeldrain URL'):
