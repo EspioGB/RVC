@@ -103,8 +103,9 @@ python src/download_models.py
 ```
 
 ---
+<details>
+    <summary>Usage with WebUI :</summary>
 
-## Usage with WebUI
 
 To run the AICoverGen WebUI, run the following command.
 
@@ -122,7 +123,10 @@ python src/webui.py
 
 Once the following output message `Running on local URL:  http://127.0.0.1:7860` appears, you can click on the link to open a tab with the WebUI.
 
-### Download RVC models via WebUI
+<details>
+    <summary>Download RVC models via WebUI :</summary>
+
+
 
 
 
@@ -134,7 +138,9 @@ Once the 2 input fields are filled in, simply click `Download`! Once the output 
 
 ---
 
-### Running the pipeline via WebUI
+<details>
+    <summary>Running the pipeline via WebUI :</summary>
+
 
 
 - From the Voice Models dropdown menu, select the voice model to use. Click `Update` if you added the files manually to the [rvc_models](rvc_models) directory to refresh the list.
@@ -144,7 +150,9 @@ Once the 2 input fields are filled in, simply click `Download`! Once the output 
 
 Once all Main Options are filled in, click `Generate` and the AI generated cover should appear in a less than a few minutes depending on your GPU.
 
-## Usage with CLI
+<details>
+    <summary>Usage with CLI :</summary>
+
 
 ### Manual Download of RVC models
 
@@ -187,7 +195,9 @@ python src/main.py [-h] -i SONG_INPUT -dir RVC_DIRNAME -p PITCH_CHANGE [-k | --k
 
 ---
 
-## Terms of Use
+<details>
+    <summary>Terms of Use :</summary>
+
 
 The use of the converted voice for the following purposes is prohibited.
 
