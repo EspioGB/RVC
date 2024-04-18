@@ -182,8 +182,7 @@ if __name__ == '__main__':
         gr.Markdown('# HRVC 💻')
         
         # main tab
-        with gr.Tab("Generate"):
-        
+        with gr.Tab("Retrieval-based-Voice-Conversion Inference"):    
             with gr.Accordion('Main Options'):
                 with gr.Row():
                     with gr.Column():
@@ -261,6 +260,7 @@ if __name__ == '__main__':
                                      reverb_dry, reverb_damping, output_format, ai_cover, ai_backing, ai_vocals])
 
         # Download tab
+    with gr.Tab("download voice models"):
         with gr.Accordion('Download model', open=False):
 
             with gr.Tab('From HuggingFace/Pixeldrain URL'):
@@ -279,7 +279,8 @@ if __name__ == '__main__':
                     [
                         ['https://huggingface.co/Hev832/nah/resolve/main/kapten-curut.zip?download=true', 'kapten-curut'],
                         ['https://huggingface.co/AinurAinur/MrBeast/resolve/main/MrBeast.zip?download=true', 'MrBeast'],
-                        ['https://huggingface.co/OwlCity/OwlCityRVC/resolve/main/Shadow06.zip?download=true', 'Shadow']
+                        ['https://huggingface.co/OwlCity/OwlCityRVC/resolve/main/Shadow06.zip?download=true', 'Shadow'],
+                        ['https://huggingface.co/Hev832/rvc/resolve/main/Sonic.zip?download=true', 'Sonic']
                     ],
                     [model_zip_link, model_name],
                     [],
