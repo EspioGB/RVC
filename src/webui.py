@@ -242,9 +242,7 @@ if __name__ == '__main__':
                 ai_cover = gr.Audio(label='AI Cover', show_share_button=False)
             with gr.Row():
                 ai_backing = gr.Audio(label='AI backing', show_share_button=False)
-            with gr.Row():
-                ai_vocals = gr.Audio(label='AI vocals', show_share_button=False)
-
+            
             
             ref_btn.click(update_models_list, None, outputs=rvc_model)
             is_webui = gr.Number(value=1, visible=False)
@@ -253,11 +251,11 @@ if __name__ == '__main__':
                                        inst_gain, index_rate, filter_radius, rms_mix_rate, f0_method, crepe_hop_length,
                                        protect, pitch_all, reverb_rm_size, reverb_wet, reverb_dry, reverb_damping,
                                        output_format],
-                               outputs=[ai_cover, ai_backing, ai_vocals])
-            clear_btn.click(lambda: [0, 0, 0, 0, 0.5, 3, 0.25, 0.33, 'rmvpe', 128, 0, 0.15, 0.2, 0.8, 0.7, 'mp3', None, None, None],
+                               outputs=[ai_cover, ai_backing])
+            clear_btn.click(lambda: [0, 0, 0, 0, 0.5, 3, 0.25, 0.33, 'rmvpe', 128, 0, 0.15, 0.2, 0.8, 0.7, 'mp3', None, None],
                             outputs=[pitch, main_gain, backup_gain, inst_gain, index_rate, filter_radius, rms_mix_rate,
                                      protect, f0_method, crepe_hop_length, pitch_all, reverb_rm_size, reverb_wet,
-                                     reverb_dry, reverb_damping, output_format, ai_cover, ai_backing, ai_vocals])
+                                     reverb_dry, reverb_damping, output_format, ai_cover, ai_backing])
 
         # Download tab
     with gr.Tab("download voice models"):
