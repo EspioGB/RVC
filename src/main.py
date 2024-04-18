@@ -319,7 +319,7 @@ def song_cover_pipeline(song_input, voice_model, pitch_change, keep_files,
                 if file and os.path.exists(file):
                     os.remove(file)
 
-        return ai_vocals_mixed_path, ai_cover_backing_path
+        return ai_cover_path, ai_cover_backing_path
 
     except Exception as e:
         raise_exception(str(e), is_webui)
