@@ -300,7 +300,7 @@ def song_cover_pipeline(song_input, voice_model, pitch_change, keep_files,
         display_progress('[~] Applying audio effects to Vocals...', 0.8, is_webui, progress)
         ai_vocals_mixed_path = add_audio_effects(ai_vocals_path, reverb_rm_size, reverb_wet, reverb_dry, reverb_damping)
         ai_backing_mixed_path = add_audio_effects(ai_backing_path, reverb_rm_size, reverb_wet, reverb_dry, reverb_damping)
-        ai_vocals_mixed_pathS = add_audio_effects(ai_backing_path, ai_vocals_path, reverb_rm_size, reverb_wet, reverb_dry, reverb_damping)
+        ai_vocals_mixed_pathS = add_audio_effects(ai_backing_path, ai_vocals_path, reverb_rm_size, reverb_wet, reverb_dry)
 
         
         if pitch_change_all != 0:
