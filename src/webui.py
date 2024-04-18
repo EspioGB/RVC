@@ -269,8 +269,8 @@ if __name__ == '__main__':
                 with gr.Row():
                     download_btn = gr.Button('Download', variant='primary', scale=19)
                     dl_output_message = gr.Text(label='Output Message', interactive=False, scale=20)
-
-                download_btn.click(download_online_model, inputs=[model_zip_link, model_name], outputs=dl_output_message)
+                    
+                    download_btn.click(download_online_model, inputs=[model_zip_link, model_name], outputs=dl_output_message)
 
                 gr.Markdown('## Input Examples')
                 gr.Examples(
