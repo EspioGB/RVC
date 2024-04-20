@@ -1,6 +1,6 @@
 @echo off
 setlocal
-title HRVC Ai
+title .HRVC Ai.
 
 if not exist env (
     echo Please run 'install.bat' first to set up the environment.
