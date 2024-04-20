@@ -11,15 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions: write-all
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      - name: Close PR if it is not pointed to dev branch
-        if: github.event.pull_request.base.ref != 'dev'
-        uses: superbrothers/close-pull-request@v3
-        with:
-          # Optional. Post a issue comment just before closing a pull request.
-          comment: "Invalid PR to `non-dev` branch `${{ github.event.pull_request.base.ref }}`."
-
   pull_format:
     runs-on: ubuntu-latest
     permissions:
